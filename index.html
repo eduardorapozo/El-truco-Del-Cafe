@@ -71,7 +71,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Botón en sección</title>
+  <title>Botón con Timer</title>
   <style>
     .seccion-boton {
       width: 100%;
@@ -79,28 +79,52 @@
       justify-content: center;
       align-items: center;
       padding: 40px 0;
-        }
+      background-color: #ffffff;
+      display: none; /* inicia escondido */
+    }
     .boton-cafe {
       padding: 15px 30px;
       font-size: 18px;
       color: #fff;
-      background-color: #8B0000; /* vermelho escuro */
+      background-color: #8B0000;
       border: none;
       border-radius: 5px;
       cursor: pointer;
       text-decoration: none;
       transition: background-color 0.3s ease;
+      animation: pulse 1.5s infinite;
     }
     .boton-cafe:hover {
       background-color: #a40000;
     }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
   </style>
 </head>
 <body>
-  <section class="seccion-boton">
-    <a href="#" class="boton-cafe">QUIERO EL TRUCO DEL CAFÉ</a>
+
+  <section class="seccion-boton" id="boton-section">
+    <a href="#" class="boton-cafe">Quiero el truco del café</a>
   </section>
 
+  <script>
+    // tempo em milissegundos (37 minutos e 8 segundos = 2228 segundos)
+    var tiempoEspera = 2228 * 1000;
+
+    setTimeout(function() {
+      document.getElementById("boton-section").style.display = "flex";
+    }, tiempoEspera);
+  </section>
 
         </header>
         
